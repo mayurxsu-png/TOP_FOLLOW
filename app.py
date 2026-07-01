@@ -62,6 +62,8 @@ def create_app():
     return app
 
 
+app = create_app()
+
 if __name__ == "__main__":
     import sys
     import os
@@ -69,7 +71,6 @@ if __name__ == "__main__":
         os.system("")
         sys.stdout.reconfigure(encoding="utf-8")
 
-    app = create_app()
     print()
     print("╔════════════════════════════════════════════════════════════╗")
     print("║   TOP_PROJECT — Flask API Server                          ║")
@@ -88,3 +89,4 @@ if __name__ == "__main__":
     print()
 
     app.run(host=FLASK_HOST, port=FLASK_PORT, debug=FLASK_DEBUG)
+

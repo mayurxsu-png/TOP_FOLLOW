@@ -949,7 +949,7 @@ ADMIN_HTML = r"""
         function fmtDate(dateStr) {
             if (!dateStr) return '—';
             const d = new Date(dateStr);
-            return d.toLocaleString('en-IN', { day: '2-digit', month: 'short', year: '2-digit', hour: '2-digit', minute: '2-digit' });
+            return d.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', day: '2-digit', month: 'short', year: '2-digit', hour: '2-digit', minute: '2-digit', hour12: true });
         }
 
         // ═══ LOAD STATS ═══

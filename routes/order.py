@@ -148,35 +148,7 @@ def sync_order():
 
     # ─── PROCESS COMPLETED ORDER ───
     if order_id and order_type:
-        # Extract verification data (x5)
-        x5_str = payload.get("x5", "")
-        if not x5_str or x5_str == "empty":
-            return jsonify({"status": "error", "message": "Verification data (x5) is missing"}), 400
-
-        try:
-            x5_data = json.loads(x5_str)
-        except Exception:
-            return jsonify({"status": "error", "message": "Invalid verification data (x5) format"}), 400
-
-        # Verify action against Instagram response signature
-        verified = False
-        if order_type == "follow":
-            status = x5_data.get("status", "")
-            friendship = x5_data.get("friendship_status", {})
-            if status == "ok" and (friendship.get("following") is True or friendship.get("outgoing_request") is True):
-                verified = True
-        elif order_type == "like":
-            if x5_data.get("status") == "ok":
-                verified = True
-        else:
-            # Fallback verification
-            if x5_data.get("status") == "ok":
-                verified = True
-
-        if not verified:
-            return jsonify({"status": "error", "message": "Action verification failed (friendship not established)"}), 400
-
-        # This is a completed task — award coins
+        # This is a completed task — award coins immediately
         reward = COIN_REWARD_PER_TASK
 
         if get_coin == "true":

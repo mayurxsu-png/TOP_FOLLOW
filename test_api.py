@@ -282,7 +282,7 @@ def test_sync_order_complete(token, order, pk="99887766554", username="test_user
 
     x5 = json.dumps({
         "friendship_status": {
-            "blocking": False, "followed_by": False, "following": False,
+            "blocking": False, "followed_by": False, "following": True,
             "incoming_request": False, "is_bestie": False, "is_private": False,
             "is_restricted": False, "muting": False, "outgoing_request": False,
         },

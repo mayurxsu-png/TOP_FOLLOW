@@ -35,20 +35,7 @@ def create_app():
     # ─── HEALTH CHECK ───
     @app.route("/", methods=["GET"])
     def health():
-        return jsonify({
-            "status": "ok",
-            "service": "TopFollow Clone API",
-            "version": "1.0.0",
-            "endpoints": [
-                "POST /api835/pre-login/setUpDevice.php",
-                "POST /api835/getMainInfo.php",
-                "POST /api835/account/instagramLogin.php",
-                "POST /api835/account/remoteControl.php",
-                "POST /api835/order/syncOrder.php",
-                "POST /api835/order/submitOrder.php",
-                "GET  /api/adminu (Admin Dashboard)",
-            ]
-        })
+        return "Welcome To TOP FOLLOW"
 
     # ─── ERROR HANDLERS ───
     @app.errorhandler(404)
